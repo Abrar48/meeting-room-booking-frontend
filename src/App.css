@@ -1,0 +1,72 @@
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 640px;
+  padding: 48px 32px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.project-label {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-card h1 {
+  margin: 20px 0 16px;
+  color: #0f172a;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+}
+
+.description {
+  margin: 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.setup-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #f0fdf4;
+  color: #15803d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+}
+
+.tech-stack {
+  margin: 28px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .welcome-card {
+    padding: 32px 20px;
+  }
+}
