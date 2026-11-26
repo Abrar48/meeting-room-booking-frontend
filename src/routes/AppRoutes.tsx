@@ -14,8 +14,9 @@ import MemberDashboard from '../pages/member/MemberDashboard'
 
 import ProtectedRoute from './ProtectedRoute'
 import GuestRoute from './GuestRoute'
-import RoleRoute from './RoleRoute'
 import RoleRedirect from './RoleRedirect'
+import RequireAdmin from './RequireAdmin'
+import RequireTeamMember from './RequireTeamMember'
 
 import { ROUTES } from './routePaths'
 
@@ -51,14 +52,13 @@ export default function AppRoutes() {
           element={<ForbiddenPage />}
         />
 
-        {/* Admin-only routes */}
+        {/* Strict Admin Panel boundary */}
         <Route
-          element={
-            <RoleRoute allowedRoles={['ADMIN']} />
-          }
+          path="/admin"
+          element={<RequireAdmin />}
         >
           <Route
-            path="/admin"
+            index
             element={
               <Navigate
                 to={ROUTES.ADMIN_DASHBOARD}
@@ -68,19 +68,24 @@ export default function AppRoutes() {
           />
 
           <Route
-            path={ROUTES.ADMIN_DASHBOARD}
+            path="dashboard"
             element={<AdminDashboard />}
+          />
+
+          {/* Protect all unmatched admin routes */}
+          <Route
+            path="*"
+            element={<NotFoundPage />}
           />
         </Route>
 
-        {/* Team-member-only routes */}
+        {/* Strict Team Member Panel boundary */}
         <Route
-          element={
-            <RoleRoute allowedRoles={['TEAM_MEMBER']} />
-          }
+          path="/member"
+          element={<RequireTeamMember />}
         >
           <Route
-            path="/member"
+            index
             element={
               <Navigate
                 to={ROUTES.MEMBER_DASHBOARD}
@@ -90,13 +95,19 @@ export default function AppRoutes() {
           />
 
           <Route
-            path={ROUTES.MEMBER_DASHBOARD}
+            path="dashboard"
             element={<MemberDashboard />}
+          />
+
+          {/* Protect all unmatched member routes */}
+          <Route
+            path="*"
+            element={<NotFoundPage />}
           />
         </Route>
       </Route>
 
-      {/* Unknown routes */}
+      {/* Public unknown routes */}
       <Route
         path="*"
         element={<NotFoundPage />}
