@@ -1,5 +1,7 @@
 const ACCESS_TOKEN_KEY = 'meeting_room_access_token'
 
+export const AUTH_UNAUTHORIZED_EVENT = 'auth:unauthorized'
+
 export const tokenStorage = {
   getAccessToken(): string | null {
     return sessionStorage.getItem(ACCESS_TOKEN_KEY)

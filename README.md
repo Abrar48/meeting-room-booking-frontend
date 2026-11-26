@@ -9,6 +9,7 @@ A React and TypeScript frontend for the Meeting Room Booking System.
 - Vite
 - React Router
 - Axios
+- React Context API
 - ESLint
 
 ## Getting Started
@@ -45,17 +46,62 @@ The Axios client is configured in `src/api/client.ts`.
 
 The API base URL is loaded from `VITE_API_URL`.
 
-The development proxy forwards `/api` requests to the Django backend.
+The Vite development proxy forwards `/api` requests to Django.
 
-When an access token exists in session storage, the Axios request
-interceptor automatically injects the JWT Bearer authorization header.
+The request interceptor automatically attaches the JWT Bearer
+authorization header to authenticated API requests.
 
-Never commit credentials, JWT tokens, or environment secrets.
+The response interceptor handles authenticated 401 responses
+by clearing the current session and notifying the AuthProvider.
+
+## Authentication
+
+Global authentication state is managed using React Context.
+
+Main authentication files:
+
+- `src/context/AuthContext.ts`
+- `src/context/AuthProvider.tsx`
+- `src/hooks/useAuth.ts`
+- `src/api/auth.ts`
+- `src/types/auth.ts`
+- `src/utils/tokenStorage.ts`
+
+The authentication context exposes:
+
+- User profile
+- User role
+- Team ID
+- Authentication status
+- Admin and team member flags
+- Login and logout methods
+- Session restoration and retry
+
+## Session Persistence
+
+Access tokens are stored in session storage.
+
+On page reload, the application verifies the stored access
+token using GET /api/auth/me/ and restores the user profile.
+
+A 401 response from an authenticated request automatically
+clears the session.
+
+Network errors and other HTTP errors do not automatically
+invalidate an existing session.
+
+This implementation uses auto-logout rather than token refresh
+because the backend does not currently expose a refresh endpoint.
+
+Session storage is accessible to JavaScript and does not
+provide complete protection against XSS attacks.
+
+Never commit credentials, access tokens, or environment secrets.
 
 ## Routes
 
-- `/` — Home and backend connectivity check
-- `/login` — Login placeholder
+- `/` — Home and authentication status
+- `/login` — Login
 - `*` — Page not found
 
 ## Code Quality
@@ -68,13 +114,14 @@ npm run build
 
 ## Production
 
-Configure a production reverse proxy or appropriate backend CORS settings.
+Configure a production reverse proxy or appropriate CORS settings.
 
-The hosting server must support SPA route fallback to `index.html`.
+The hosting server must support SPA route fallback to index.html.
 
 ## Development Status
 
-FE-01: Frontend Project Initialization and API Client Setup.
+- FE-01: Frontend Project Init & API Client Setup
+- FE-02: Global Auth State & Session Persistence
 
-Full authentication, protected routes, and dashboard functionality
-will be implemented in subsequent tasks.
+Role-based protected routes and dashboard interfaces will
+be implemented in subsequent tasks.
