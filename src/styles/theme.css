@@ -1,0 +1,152 @@
+:root {
+  /* Brand colors */
+  --color-primary: #d81b60;
+  --color-primary-dark: #ad1457;
+  --color-primary-light: #fce4ec;
+  --color-primary-focus: #f48fb1;
+
+  /* Layout colors */
+  --color-sidebar: #242426;
+  --color-sidebar-hover: #353538;
+  --color-background: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-border: #e4e4e7;
+
+  /* Typography */
+  --color-text: #25252b;
+  --color-text-muted: #71717a;
+  --color-text-inverse: #ffffff;
+
+  /* Booking statuses */
+  --color-booked: #d81b60;
+  --color-available: #16865c;
+  --color-pending: #d97706;
+  --color-rejected: #dc2626;
+  --color-cancelled: #64748b;
+
+  /* Feedback colors */
+  --color-success: #16865c;
+  --color-error: #dc2626;
+  --color-warning: #d97706;
+  --color-info: #2563eb;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(36, 36, 38, 0.06);
+
+  /* Layout dimensions */
+  --sidebar-width: 260px;
+  --navbar-height: 64px;
+
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Existing application pages */
+
+.app .welcome-card {
+  border-color: var(--color-border);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.app .project-label {
+  color: var(--color-primary);
+}
+
+.app .welcome-card h1 {
+  color: var(--color-text);
+}
+
+.app .description {
+  color: var(--color-text-muted);
+}
+
+.app .primary-button {
+  background-color: var(--color-primary);
+}
+
+.app .primary-button:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.app .primary-button:focus-visible,
+.app .secondary-button:focus-visible {
+  outline-color: var(--color-primary-focus);
+}
+
+/* Existing login page */
+
+.login-layout .login-brand-panel {
+  background-color: var(--color-sidebar);
+}
+
+.login-layout .login-brand-eyebrow {
+  color: var(--color-primary-focus);
+}
+
+.login-layout .login-brand-icon {
+  border-color: transparent;
+  background-color: var(--color-primary);
+}
+
+.login-layout .login-features svg {
+  color: var(--color-primary-focus);
+}
+
+.login-layout .login-eyebrow {
+  color: var(--color-primary);
+}
+
+.login-layout .login-heading h1 {
+  color: var(--color-text);
+}
+
+.login-layout .login-heading p {
+  color: var(--color-text-muted);
+}
+
+.login-layout .login-submit-button {
+  background-color: var(--color-primary);
+}
+
+.login-layout .login-submit-button:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.login-layout .login-submit-button:disabled {
+  background-color: var(--color-primary-dark);
+  opacity: 0.65;
+}
+
+.login-layout .login-input-wrapper:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(216, 27, 96, 0.12);
+}
+
+.login-layout .login-input-wrapper.has-error {
+  border-color: var(--color-error);
+}
+
+.login-layout .login-input-wrapper.has-error:focus-within {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.login-layout .login-password-toggle:hover,
+.login-layout .login-back-link:hover {
+  color: var(--color-primary);
+}
+
+.login-layout .login-submit-button:focus-visible,
+.login-layout .login-password-toggle:focus-visible,
+.login-layout .login-back-link:focus-visible {
+  outline-color: var(--color-primary-focus);
+}
+
+.app .session-spinner {
+  color: var(--color-primary);
+}
