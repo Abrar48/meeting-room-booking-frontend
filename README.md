@@ -10,6 +10,9 @@ A React and TypeScript frontend for the Meeting Room Booking System.
 - React Router
 - Axios
 - React Context API
+- React Hook Form
+- Zod
+- Lucide React
 - ESLint
 
 ## Getting Started
@@ -98,6 +101,33 @@ provide complete protection against XSS attacks.
 
 Never commit credentials, access tokens, or environment secrets.
 
+## Login Page
+
+The login interface includes:
+
+- Responsive corporate layout
+- React Hook Form integration
+- Zod client-side validation
+- Required username and password fields
+- Inline field validation messages
+- Password visibility toggle
+- Loading state and duplicate submission prevention
+- Invalid credentials error banner
+- Network and server error handling
+- Accessible labels and error messages
+- Existing session restoration support
+
+The validation schema is located at:
+
+`src/schemas/loginSchema.ts`
+
+The login page and its styles are located at:
+
+- `src/pages/LoginPage.tsx`
+- `src/pages/LoginPage.css`
+
+Authentication is performed using the existing backend login API.
+
 ## Routes
 
 - `/` — Home and authentication status
@@ -116,12 +146,15 @@ npm run build
 
 Configure a production reverse proxy or appropriate CORS settings.
 
+Use HTTPS for production authentication.
+
 The hosting server must support SPA route fallback to index.html.
 
 ## Development Status
 
 - FE-01: Frontend Project Init & API Client Setup
 - FE-02: Global Auth State & Session Persistence
+- FE-03: Login Page & Form Validation
 
 Role-based protected routes and dashboard interfaces will
 be implemented in subsequent tasks.
