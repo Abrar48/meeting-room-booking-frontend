@@ -1,0 +1,190 @@
+.route-state-card {
+  max-width: 520px;
+}
+
+.route-state-icon {
+  display: flex;
+  width: 76px;
+  height: 76px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  border-radius: 20px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.route-error-icon {
+  background-color: #fef2f2;
+  color: var(--color-error);
+}
+
+.route-security-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.route-security-note svg {
+  color: var(--color-success);
+}
+
+.route-spinner {
+  animation: route-spin 800ms linear infinite;
+}
+
+@keyframes route-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.route-error-code {
+  margin-top: 16px;
+  color: var(--color-primary);
+  font-size: clamp(64px, 10vw, 96px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 1.1;
+}
+
+.route-dashboard {
+  max-width: 720px;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.route-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px;
+  background-color: var(--color-sidebar);
+  color: var(--color-text-inverse);
+}
+
+.route-dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.route-brand-icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.route-dashboard-brand strong {
+  display: block;
+  font-size: 16px;
+}
+
+.route-dashboard-brand span {
+  display: block;
+  margin-top: 4px;
+  color: #d4d4d8;
+  font-size: 12px;
+}
+
+.route-role-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-sidebar-hover);
+  color: #fce4ec;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.route-dashboard-body {
+  padding: 36px 32px;
+  text-align: center;
+}
+
+.route-dashboard-body h1 {
+  font-size: clamp(26px, 5vw, 36px);
+}
+
+.route-dashboard .profile-details {
+  border-color: var(--color-border);
+}
+
+.route-dashboard .profile-details dt {
+  color: var(--color-text-muted);
+}
+
+.route-dashboard .profile-details dd {
+  color: var(--color-text);
+}
+
+.route-development-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.route-dashboard .primary-button,
+.route-dashboard .secondary-button,
+.route-dashboard .danger-button,
+.route-state-card .primary-button,
+.route-state-card .secondary-button {
+  gap: 8px;
+}
+
+.route-dashboard .primary-button,
+.route-dashboard .secondary-button,
+.route-dashboard .danger-button {
+  min-height: 44px;
+}
+
+@media (max-width: 540px) {
+  .route-dashboard-header {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  .route-dashboard-body {
+    padding: 28px 20px;
+  }
+
+  .route-role-badge {
+    font-size: 10px;
+  }
+
+  .route-state-card {
+    padding: 32px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-spinner {
+    animation: none;
+  }
+}
